@@ -2,7 +2,7 @@
 
 [ext_resource path="res://models/low_poly.material" type="Material" id=1]
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=1]
 
 resource_name = "Material"
 render_priority = 0
@@ -54,9 +54,8 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 
-[sub_resource type="ArrayMesh" id=1]
+[sub_resource type="ArrayMesh" id=2]
 
-resource_name = "Cylinder"
 blend_shape_mode = 1
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 surfaces/0 = {
@@ -66,7 +65,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 354,
-"material": SubResource( 2 ),
+"material": SubResource( 1 ),
 "name": "Material",
 "primitive": 4,
 "skeleton_aabb": [  ],
@@ -99,7 +98,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "material" ]

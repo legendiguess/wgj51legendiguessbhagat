@@ -1,9 +1,9 @@
 extends KinematicBody
 
 var motion = Vector3(0,0,0)
-var MAXSPEED = 50
-var SPEED= 5
-var STOP = 5
+var MAXSPEED = 500
+var SPEED= 50
+var STOP = 50
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

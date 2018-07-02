@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AnimalSkin.png-ec4918f6b3493c50ccfaa0bb5103db50.stex"
+path="res://.import/AnimalSkin.png-ee64f5f486378a8935d3d73674e5bc02.stex"
 
 [deps]
 
-source_file="res://objects/images/AnimalSkin.png"
-dest_files=[ "res://.import/AnimalSkin.png-ec4918f6b3493c50ccfaa0bb5103db50.stex" ]
+source_file="res://models/images/AnimalSkin.png"
+dest_files=[ "res://.import/AnimalSkin.png-ee64f5f486378a8935d3d73674e5bc02.stex" ]
 
 [params]
 

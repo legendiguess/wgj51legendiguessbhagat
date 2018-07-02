@@ -4,7 +4,7 @@
 [ext_resource path="res://fonts/PressStart2P.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/popup_settings.gd" type="Script" id=3]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=1]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -32,7 +32,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=2]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -60,14 +60,14 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxEmpty" id=3]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=4]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -96,7 +96,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Shadow" ]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=5]
 
 size = 56
 use_mipmaps = false
@@ -104,7 +104,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 
 size = 40
 use_mipmaps = false
@@ -133,11 +133,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_disabled = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 0.921569, 1 )
@@ -168,11 +168,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_disabled = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 0.921569, 1 )
@@ -203,11 +203,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_disabled = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 0.921569, 1 )
@@ -238,11 +238,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_disabled = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 0.921569, 1 )
@@ -295,7 +295,6 @@ invert_border = 100.0
 [node name="popup_about_polygon_2" type="Polygon2D" parent="popup_about" index="1"]
 
 position = Vector2( -3.8147e-006, -7.15256e-006 )
-scale = Vector2( 1, 1 )
 polygon = PoolVector2Array( 80, 80, 1200, 80, 1200, 640, 80, 640 )
 uv = PoolVector2Array(  )
 color = Color( 0.376471, 0.376471, 0.439216, 1 )
@@ -325,7 +324,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color_shadow = Color( 0.196078, 0.243137, 0.309804, 1 )
 custom_constants/shadow_offset_x = 0
@@ -359,7 +358,7 @@ popup_exclusive = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Dialog", "Popup" ]
 
-[node name="popup_settings_polygon_1" type="Polygon2D" parent="popup_settings" index="7"]
+[node name="popup_settings_polygon_1" type="Polygon2D" parent="popup_settings" index="0"]
 
 position = Vector2( -80, -80 )
 scale = Vector2( 1.07143, 1.14286 )
@@ -376,10 +375,9 @@ texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
 
-[node name="popup_setttings_polygon_2" type="Polygon2D" parent="popup_settings" index="8"]
+[node name="popup_setttings_polygon_2" type="Polygon2D" parent="popup_settings" index="1"]
 
 position = Vector2( -40, -40 )
-scale = Vector2( 1, 1 )
 polygon = PoolVector2Array( 80, 80, 1200, 80, 1200, 640, 80, 640 )
 uv = PoolVector2Array(  )
 color = Color( 0.376471, 0.376471, 0.439216, 1 )
@@ -393,7 +391,7 @@ texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
 
-[node name="popup_settings_label" type="Label" parent="popup_settings" index="9"]
+[node name="popup_settings_label" type="Label" parent="popup_settings" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -407,7 +405,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color_shadow = Color( 0.196078, 0.243137, 0.309804, 1 )
 custom_constants/shadow_offset_x = 0
@@ -419,7 +417,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="popup_settings_apply_button" type="Button" parent="popup_settings" index="10"]
+[node name="popup_settings_apply_button" type="Button" parent="popup_settings" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -436,11 +434,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_disabled = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color = Color( 1, 1, 0.921569, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 0.921569, 1 )

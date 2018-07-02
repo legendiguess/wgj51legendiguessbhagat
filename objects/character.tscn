@@ -1,38 +1,46 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/character.gd" type="Script" id=1]
-[ext_resource path="res://sprites/hero_run_up_1.png" type="Texture" id=2]
-[ext_resource path="res://sprites/hero_run_up_2.png" type="Texture" id=3]
-[ext_resource path="res://sprites/hero_run_up_3.png" type="Texture" id=4]
-[ext_resource path="res://sprites/hero_run_up_4.png" type="Texture" id=5]
-[ext_resource path="res://sprites/hero_run_up_5.png" type="Texture" id=6]
-[ext_resource path="res://sprites/hero_run_up_6.png" type="Texture" id=7]
-[ext_resource path="res://sprites/hero_run_down_1.png" type="Texture" id=8]
-[ext_resource path="res://sprites/hero_run_down_2.png" type="Texture" id=9]
-[ext_resource path="res://sprites/hero_run_down_3.png" type="Texture" id=10]
-[ext_resource path="res://sprites/hero_run_down_4.png" type="Texture" id=11]
-[ext_resource path="res://sprites/hero_run_down_5.png" type="Texture" id=12]
+[ext_resource path="res://sprites/hero_run_down_1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/hero_run_down_2.png" type="Texture" id=3]
+[ext_resource path="res://sprites/hero_run_down_3.png" type="Texture" id=4]
+[ext_resource path="res://sprites/hero_run_down_4.png" type="Texture" id=5]
+[ext_resource path="res://sprites/hero_run_down_5.png" type="Texture" id=6]
+[ext_resource path="res://sprites/hero_idle_down_1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/hero_idle_down_2.png" type="Texture" id=8]
+[ext_resource path="res://sprites/hero_run_up_1.png" type="Texture" id=9]
+[ext_resource path="res://sprites/hero_run_up_2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/hero_run_up_3.png" type="Texture" id=11]
+[ext_resource path="res://sprites/hero_run_up_4.png" type="Texture" id=12]
+[ext_resource path="res://sprites/hero_run_up_5.png" type="Texture" id=13]
+[ext_resource path="res://sprites/hero_run_up_6.png" type="Texture" id=14]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "run_up",
-"speed": 9.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "run_down",
 "speed": 9.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "idle_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "run_up",
+"speed": 9.0
 } ]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=4]
 
 extents = Vector3( 0.069912, 0.131397, 0.0124648 )
 
 [node name="character" type="KinematicBody"]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -85,14 +93,14 @@ transparent = true
 shaded = false
 double_sided = true
 alpha_cut = 0
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 animation = "run_down"
 frame = 3
 _sections_unfolded = [ "Transform" ]
 
 [node name="character_collision" type="CollisionShape" parent="." index="2"]
 
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 disabled = false
 
 

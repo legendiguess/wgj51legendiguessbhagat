@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/RPG - The Cavern of Wonders.ogg-edb32179f79822ac929ab37fcc77eadf.oggstr"
+
+[deps]
+
+source_file="res://sounds/RPG - The Cavern of Wonders.ogg"
+dest_files=[ "res://.import/RPG - The Cavern of Wonders.ogg-edb32179f79822ac929ab37fcc77eadf.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

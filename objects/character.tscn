@@ -680,6 +680,7 @@ bones/20/parent = 19
 bones/20/rest = Transform( -1, 2.81023e-07, -7.42983e-07, -7.88139e-07, -0.23424, 0.972179, 9.91682e-08, 0.972179, 0.23424, 2.98023e-08, -1.49012e-08, -0.630268 )
 bones/20/enabled = true
 bones/20/bound_children = [  ]
+_sections_unfolded = [ "Transform" ]
 
 [node name="Cube" type="MeshInstance" parent="character_spatial/Skeleton" index="0"]
 

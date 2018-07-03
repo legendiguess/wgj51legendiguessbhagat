@@ -63,15 +63,21 @@ func walk_anim():
 
 func rotate_mesh():
 	
-#	if rot_y == 360:
-#		rot_y = 0
-#
-#	if rot_y != rot_target:
-#		if rot_y < (rot_y + 180):
-#			rot_y -= rot_speed
-#		elif rot_y >= (rot_y + 180):
-#			rot_y += rot_speed
-#		print(rot_y)
+	if rot_y > 360:
+		rot_y = 0
+	elif rot_y < 0:
+		rot_y = 360
 	
-	$character_spatial.rotation_degrees.y = rot_target
+	if rot_y < (rot_target):
+		if (rot_target - rot_y) <= 180:
+			rot_y += rot_speed
+		else:
+			rot_y -= rot_speed
+	elif rot_y > (rot_target):
+		if (rot_target - rot_y) >= 180:
+			rot_y += rot_speed
+		else:
+			rot_y -= rot_speed
+	
+	$character_spatial/Skeleton.rotation_degrees.y = rot_y
 

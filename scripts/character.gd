@@ -1,14 +1,15 @@
 extends KinematicBody
 
 onready var motion = Vector3(0,0,0)
-onready var MAXSPEED = 300
-onready var SPEED= 50
+onready var MAXSPEED = 600
+onready var SPEED= 25
 onready var STOP = 50
 onready var GRAVITY = 10
 onready var FLOOR = Vector3(0, 1, 0)
 onready var rot_target = 0
 onready var rot_y = 0
 onready var rot_speed = 10
+var HP = 10
 
 
 func _physics_process(delta):
@@ -48,10 +49,9 @@ func _physics_process(delta):
 	else:
 		if motion.x > 0:
 			motion.x -= STOP
-	if motion.z != 0:
-		$character_sprites.play("run_up")
 	if motion.z == 0 and motion.x == 0:
 		if !$character_spatial/character_animation.current_animation == "Idle":
+			$character_spatial/character_animation.playback_speed = 1
 			$character_spatial/character_animation.play("Idle")
 	
 	if not is_on_floor():
@@ -66,7 +66,8 @@ func _physics_process(delta):
 
 func walk_anim():
 	if $character_spatial/character_animation.current_animation != "WalkAnim":
-			$character_spatial/character_animation.play("WalkAnim")
+		$character_spatial/character_animation.playback_speed = 3
+		$character_spatial/character_animation.play("WalkAnim")
 
 func rotate_mesh():
 	

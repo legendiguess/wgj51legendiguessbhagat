@@ -4,6 +4,8 @@ onready var motion = Vector3(0,0,0)
 onready var MAXSPEED = 300
 onready var SPEED= 50
 onready var STOP = 50
+onready var GRAVITY = 10
+onready var FLOOR = Vector3(0, 1, 0)
 onready var rot_target = 0
 onready var rot_y = 0
 onready var rot_speed = 10
@@ -52,9 +54,14 @@ func _physics_process(delta):
 		if !$character_spatial/character_animation.current_animation == "Idle":
 			$character_spatial/character_animation.play("Idle")
 	
+	if not is_on_floor():
+		motion.y -= GRAVITY
+	else:
+		motion.y = 0
+	
 	rotate_mesh()
 	
-	move_and_slide(motion*delta)
+	move_and_slide(motion*delta, FLOOR)
 #	print(motion)
 
 func walk_anim():

@@ -74,7 +74,7 @@ func rotate_mesh():
 		else:
 			rot_y -= rot_speed
 	elif rot_y > (rot_target):
-		if (rot_target - rot_y) >= 180:
+		if (rot_y - rot_target) >= 180:
 			rot_y += rot_speed
 		else:
 			rot_y -= rot_speed

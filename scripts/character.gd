@@ -2,7 +2,7 @@ extends KinematicBody
 
 onready var motion = Vector3(0,0,0)
 onready var MAXSPEED = 600
-onready var SPEED= 25
+onready var SPEED= 50
 onready var STOP = 50
 onready var GRAVITY = 10
 onready var FLOOR = Vector3(0, 1, 0)

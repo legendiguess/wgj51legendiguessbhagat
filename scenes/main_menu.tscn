@@ -294,7 +294,7 @@ invert_border = 100.0
 
 [node name="popup_about_polygon_2" type="Polygon2D" parent="popup_about" index="1"]
 
-position = Vector2( -3.8147e-006, -7.15256e-006 )
+position = Vector2( -3.8147e-06, -7.15256e-06 )
 polygon = PoolVector2Array( 80, 80, 1200, 80, 1200, 640, 80, 640 )
 uv = PoolVector2Array(  )
 color = Color( 0.376471, 0.376471, 0.439216, 1 )

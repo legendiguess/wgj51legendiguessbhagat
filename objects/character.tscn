@@ -2,13 +2,13 @@
 
 [ext_resource path="res://scripts/character.gd" type="Script" id=1]
 [ext_resource path="res://models/low_poly.material" type="Material" id=2]
-[ext_resource path="res://sprites/hero_idle_down_1.png" type="Texture" id=3]
-[ext_resource path="res://sprites/hero_idle_down_2.png" type="Texture" id=4]
-[ext_resource path="res://sprites/hero_run_down_1.png" type="Texture" id=5]
-[ext_resource path="res://sprites/hero_run_down_2.png" type="Texture" id=6]
-[ext_resource path="res://sprites/hero_run_down_3.png" type="Texture" id=7]
-[ext_resource path="res://sprites/hero_run_down_4.png" type="Texture" id=8]
-[ext_resource path="res://sprites/hero_run_down_5.png" type="Texture" id=9]
+[ext_resource path="res://sprites/hero_run_down_1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/hero_run_down_2.png" type="Texture" id=4]
+[ext_resource path="res://sprites/hero_run_down_3.png" type="Texture" id=5]
+[ext_resource path="res://sprites/hero_run_down_4.png" type="Texture" id=6]
+[ext_resource path="res://sprites/hero_run_down_5.png" type="Texture" id=7]
+[ext_resource path="res://sprites/hero_idle_down_1.png" type="Texture" id=8]
+[ext_resource path="res://sprites/hero_idle_down_2.png" type="Texture" id=9]
 [ext_resource path="res://sprites/hero_run_up_1.png" type="Texture" id=10]
 [ext_resource path="res://sprites/hero_run_up_2.png" type="Texture" id=11]
 [ext_resource path="res://sprites/hero_run_up_3.png" type="Texture" id=12]
@@ -519,15 +519,15 @@ _sections_unfolded = [ "surface_1" ]
 [sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "idle_down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "run_down",
 "speed": 9.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "idle_down",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
@@ -538,7 +538,7 @@ animations = [ {
 [sub_resource type="CapsuleShape" id=6]
 
 radius = 1.0
-height = 1.7526
+height = 1.60862
 
 [node name="character" type="KinematicBody" index="0"]
 

@@ -200,6 +200,7 @@ tracks/1/keys = {
 [node name="character" parent="." index="0" instance=ExtResource( 1 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84.4441, 2.00032, 53.247 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="sun" type="DirectionalLight" parent="." index="1"]
 

@@ -2,7 +2,7 @@ extends KinematicBody
 
 onready var motion = Vector3(0,0,0)
 onready var MAXSPEED = 600
-onready var SPEED= 50
+onready var SPEED= 500
 onready var STOP = 50
 onready var GRAVITY = 10
 onready var FLOOR = Vector3(0, 1, 0)
@@ -14,41 +14,53 @@ var HP = 100
 
 func _physics_process(delta):
 	####################################################### z movement
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right"):
+		rot_target = 135
+		walk_anim()
+		motion.z = -SPEED/1.5
+		motion.x = SPEED/1.5
+	elif Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"):
+		rot_target = 225
+		walk_anim()
+		motion.z = -SPEED/1.5
+		motion.x = -SPEED/1.5
+	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right"):
+		rot_target = 35
+		walk_anim()
+		motion.z = SPEED/1.5
+		motion.x = SPEED/1.5
+	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left"):
+		rot_target = 325
+		walk_anim()
+		motion.z = SPEED/1.5
+		motion.x = -SPEED/1.5
+	elif Input.is_action_pressed("ui_up"):
+		motion.x = 0
 		rot_target = 180
 		walk_anim()
-		if motion.z > -MAXSPEED:
-			motion.z -= SPEED
-	else:
-		if motion.z < -0:
-			motion.z += STOP
+		motion.z = -SPEED
 	###############################
-	if Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("ui_down"):
+		motion.x = 0
 		rot_target = 0
 		walk_anim()
-		if motion.z < MAXSPEED:
-			motion.z += SPEED
-	else:
-		if motion.z > 0:
-			motion.z -= STOP
+		motion.z = SPEED
 	######################################################## x movement
-	if Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left"):
+		motion.z = 0
 		rot_target = 270
 		walk_anim()
-		if motion.x > -MAXSPEED:
-			motion.x -= SPEED
-	else:
-		if motion.x < 0:
-			motion.x += STOP
+		motion.x = -SPEED
 	###############################
-	if Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_right"):
+		motion.z = 0
 		rot_target = 90
 		walk_anim()
-		if motion.x < MAXSPEED:
-			motion.x += SPEED
+		motion.x = SPEED
 	else:
-		if motion.x > 0:
-			motion.x -= STOP
+		motion.z = 0
+		motion.x = 0
+	
 	if motion.z == 0 and motion.x == 0:
 		if !$character_spatial/character_animation.current_animation == "Idle":
 			$character_spatial/character_animation.playback_speed = 1

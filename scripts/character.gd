@@ -9,7 +9,7 @@ onready var FLOOR = Vector3(0, 1, 0)
 onready var rot_target = 0
 onready var rot_y = 0
 onready var rot_speed = 10
-var HP = 10
+var HP = 100
 
 
 func _physics_process(delta):
@@ -89,3 +89,19 @@ func rotate_mesh():
 	
 	$character_spatial/Skeleton.rotation_degrees.y = rot_y
 
+
+
+func _on_character_area_body_entered(body):
+	if body.is_in_group("enemys"):
+		HP -=10
+		$character_spatial/character_animation_2.play("hit")
+		if rot_target == 180:
+			translation.z +=150*get_process_delta_time()
+		if rot_target == 0:
+			translation.z -=150*get_process_delta_time()
+		if rot_target == 270:
+			translation.x +=150*get_process_delta_time()
+		if rot_target == 90:
+			translation.x -=150*get_process_delta_time()
+		translation.y += 50*get_process_delta_time()
+	pass # replace with function body

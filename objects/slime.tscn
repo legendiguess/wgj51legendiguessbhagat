@@ -130,7 +130,7 @@ tracks/4/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1,
 radius = 0.420559
 height = 0.130909
 
-[node name="slime" type="KinematicBody" groups=[
+[node name="slime" type="KinematicBody" index="0" groups=[
 "enemys",
 ]]
 

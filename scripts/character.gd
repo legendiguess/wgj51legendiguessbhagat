@@ -14,45 +14,45 @@ var HP = 100
 
 func _physics_process(delta):
 	####################################################### z movement
-	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right") and $character_spatial/character_animation.current_animation != "Attack":
 		rot_target = 135
 		walk_anim()
 		motion.z = -SPEED/1.5
 		motion.x = SPEED/1.5
-	elif Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left") and $character_spatial/character_animation.current_animation != "Attack":
 		rot_target = 225
 		walk_anim()
 		motion.z = -SPEED/1.5
 		motion.x = -SPEED/1.5
-	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right") and $character_spatial/character_animation.current_animation != "Attack":
 		rot_target = 35
 		walk_anim()
 		motion.z = SPEED/1.5
 		motion.x = SPEED/1.5
-	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left") and $character_spatial/character_animation.current_animation != "Attack":
 		rot_target = 325
 		walk_anim()
 		motion.z = SPEED/1.5
 		motion.x = -SPEED/1.5
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("ui_up") and $character_spatial/character_animation.current_animation != "Attack":
 		motion.x = 0
 		rot_target = 180
 		walk_anim()
 		motion.z = -SPEED
 	###############################
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("ui_down") and $character_spatial/character_animation.current_animation != "Attack":
 		motion.x = 0
 		rot_target = 0
 		walk_anim()
 		motion.z = SPEED
 	######################################################## x movement
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left") and $character_spatial/character_animation.current_animation != "Attack":
 		motion.z = 0
 		rot_target = 270
 		walk_anim()
 		motion.x = -SPEED
 	###############################
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_right") and $character_spatial/character_animation.current_animation != "Attack":
 		motion.z = 0
 		rot_target = 90
 		walk_anim()
@@ -62,9 +62,12 @@ func _physics_process(delta):
 		motion.x = 0
 	
 	if motion.z == 0 and motion.x == 0:
-		if !$character_spatial/character_animation.current_animation == "Idle":
+		if !$character_spatial/character_animation.current_animation == "Idle" and $character_spatial/character_animation.current_animation != "Attack":
 			$character_spatial/character_animation.playback_speed = 1
 			$character_spatial/character_animation.play("Idle")
+	
+	if Input.is_action_just_pressed("ui_accept") and $character_spatial/character_animation.current_animation != "Attack":
+		$character_spatial/character_animation.play("Attack")
 	
 	if not is_on_floor():
 		motion.y -= GRAVITY
@@ -116,4 +119,12 @@ func _on_character_area_body_entered(body):
 		if rot_target == 90:
 			translation.x -=150*get_process_delta_time()
 		translation.y += 50*get_process_delta_time()
+	pass # replace with function body
+
+
+func _on_sword_area_body_entered(body):
+	if body.is_in_group("enemys") and $character_spatial/Skeleton/sword.visible == true:
+		body.HP -= 10
+		if body.HP == 0 or body.HP < 0:
+			body.queue_free()
 	pass # replace with function body

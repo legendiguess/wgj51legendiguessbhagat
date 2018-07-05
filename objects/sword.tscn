@@ -22,10 +22,9 @@ surfaces/0 = {
 "vertex_count": 426
 }
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="BoxShape" id=2]
 
-radius = 0.846836
-height = 3.29458
+extents = Vector3( 0.281569, 1.76737, 1.35456 )
 
 [node name="sword" type="KinematicBody" index="0"]
 
@@ -43,7 +42,7 @@ collision/safe_margin = 0.001
 
 [node name="sword_mesh" type="MeshInstance" parent="." index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0137549, 0 )
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.0137549, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -56,7 +55,7 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
-_sections_unfolded = [ "material" ]
+_sections_unfolded = [ "Transform", "material" ]
 
 [node name="sword_area" type="Area" parent="." index="1"]
 
@@ -83,7 +82,7 @@ reverb_bus_uniformity = 0.0
 
 [node name="sword_area_collision" type="CollisionShape" parent="sword_area" index="0"]
 
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 1.89144, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 1.6389, 0 )
 shape = SubResource( 2 )
 disabled = false
 _sections_unfolded = [ "Transform", "Visibility" ]

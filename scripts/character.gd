@@ -1,57 +1,69 @@
 extends KinematicBody
 
 onready var motion = Vector3(0,0,0)
-onready var MAXSPEED = 300
-onready var SPEED= 50
+onready var MAXSPEED = 600
+onready var SPEED= 500
 onready var STOP = 50
 onready var GRAVITY = 10
 onready var FLOOR = Vector3(0, 1, 0)
 onready var rot_target = 0
 onready var rot_y = 0
 onready var rot_speed = 10
+var HP = 100
 
 
 func _physics_process(delta):
 	####################################################### z movement
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right"):
+		rot_target = 135
+		walk_anim()
+		motion.z = -SPEED/1.5
+		motion.x = SPEED/1.5
+	elif Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"):
+		rot_target = 225
+		walk_anim()
+		motion.z = -SPEED/1.5
+		motion.x = -SPEED/1.5
+	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right"):
+		rot_target = 35
+		walk_anim()
+		motion.z = SPEED/1.5
+		motion.x = SPEED/1.5
+	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left"):
+		rot_target = 325
+		walk_anim()
+		motion.z = SPEED/1.5
+		motion.x = -SPEED/1.5
+	elif Input.is_action_pressed("ui_up"):
+		motion.x = 0
 		rot_target = 180
 		walk_anim()
-		if motion.z > -MAXSPEED:
-			motion.z -= SPEED
-	else:
-		if motion.z < -0:
-			motion.z += STOP
+		motion.z = -SPEED
 	###############################
-	if Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("ui_down"):
+		motion.x = 0
 		rot_target = 0
 		walk_anim()
-		if motion.z < MAXSPEED:
-			motion.z += SPEED
-	else:
-		if motion.z > 0:
-			motion.z -= STOP
+		motion.z = SPEED
 	######################################################## x movement
-	if Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left"):
+		motion.z = 0
 		rot_target = 270
 		walk_anim()
-		if motion.x > -MAXSPEED:
-			motion.x -= SPEED
-	else:
-		if motion.x < 0:
-			motion.x += STOP
+		motion.x = -SPEED
 	###############################
-	if Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_right"):
+		motion.z = 0
 		rot_target = 90
 		walk_anim()
-		if motion.x < MAXSPEED:
-			motion.x += SPEED
+		motion.x = SPEED
 	else:
-		if motion.x > 0:
-			motion.x -= STOP
-	if motion.z != 0:
-		$character_sprites.play("run_up")
+		motion.z = 0
+		motion.x = 0
+	
 	if motion.z == 0 and motion.x == 0:
 		if !$character_spatial/character_animation.current_animation == "Idle":
+			$character_spatial/character_animation.playback_speed = 1
 			$character_spatial/character_animation.play("Idle")
 	
 	if not is_on_floor():
@@ -66,7 +78,8 @@ func _physics_process(delta):
 
 func walk_anim():
 	if $character_spatial/character_animation.current_animation != "WalkAnim":
-			$character_spatial/character_animation.play("WalkAnim")
+		$character_spatial/character_animation.playback_speed = 3
+		$character_spatial/character_animation.play("WalkAnim")
 
 func rotate_mesh():
 	
@@ -88,3 +101,19 @@ func rotate_mesh():
 	
 	$character_spatial/Skeleton.rotation_degrees.y = rot_y
 
+
+
+func _on_character_area_body_entered(body):
+	if body.is_in_group("enemys"):
+		HP -=10
+		$character_spatial/character_animation_2.play("hit")
+		if rot_target == 180:
+			translation.z +=150*get_process_delta_time()
+		if rot_target == 0:
+			translation.z -=150*get_process_delta_time()
+		if rot_target == 270:
+			translation.x +=150*get_process_delta_time()
+		if rot_target == 90:
+			translation.x -=150*get_process_delta_time()
+		translation.y += 50*get_process_delta_time()
+	pass # replace with function body
